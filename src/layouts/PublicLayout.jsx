@@ -1,7 +1,7 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../auth/hooks';
 
-export const HomeLayout = () => {
+export const PublicLayout = () => {
     const { currUser } = useAuth();
     const location = useLocation();
 
