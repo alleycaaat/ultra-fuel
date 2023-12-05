@@ -2,6 +2,7 @@
 import { FcCheckmark } from 'react-icons/fc';
 import { MdError } from 'react-icons/md';
 
+//general label to wap input and display in/valid symbol
 export const Label = ({ text, label, valid, value }) => {
     return (
         <label htmlFor={label}>
@@ -12,6 +13,7 @@ export const Label = ({ text, label, valid, value }) => {
     );
 };
 
+//label to wrap matching passwords
 export const PWMatchLabel = ({ text, label, valid, value }) => {
     return (
         <label htmlFor={label}>
@@ -22,7 +24,7 @@ export const PWMatchLabel = ({ text, label, valid, value }) => {
     );
 };
 
-
+//alert for invalid username
 export const UsernameAlert = ({ userFocus, username, validName }) => {
     return (
         <div id='usernamenote' className={userFocus && username && !validName ? 'instructions' : 'offscreen'}>
@@ -33,6 +35,7 @@ export const UsernameAlert = ({ userFocus, username, validName }) => {
     );
 };
 
+//alert for invalid email address
 export const EmailAlert = ({ userFocus, email, validEmail }) => {
     return (
         <div id='emailnote' className={userFocus && email && !validEmail ? 'instructions' : 'offscreen'}>
@@ -43,6 +46,7 @@ export const EmailAlert = ({ userFocus, email, validEmail }) => {
     );
 };
 
+//alert for password requirements
 export const PWFormatAlert = ({ pcFocus, password, validPc }) => {
     return (
         <div id='pcnote' className={pcFocus && password && !validPc ? 'instructions' : 'offscreen'}>
@@ -57,6 +61,7 @@ export const PWFormatAlert = ({ pcFocus, password, validPc }) => {
     );
 };
 
+//alert that passwords don't match
 export const PWMatchAlert = ({ matchFocus, validMatch }) => {
     return (
         <div id='confirmnote' className={matchFocus && !validMatch ? 'instructions' : 'offscreen'}>
