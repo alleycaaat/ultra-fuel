@@ -4,9 +4,13 @@ import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
+import {Header} from '../elements/Header'
+import { Footer } from '../elements/Footer';
+
 export const WrappingLayout = () => {
     return (
         <div className='wrapper'>
+            <Header />
             <Outlet />
             <ToastContainer
                 position='top-right'
@@ -20,6 +24,7 @@ export const WrappingLayout = () => {
                 pauseOnHover
                 theme='light'
             />
+            <Footer />
         </div>
     );
 };
