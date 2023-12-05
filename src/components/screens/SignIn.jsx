@@ -16,14 +16,14 @@ import { H1Title } from '../elements/titles';
 
 
 const SignIn = () => {
-    const { authUser } = useAuth()
+    const { authUser } = useAuth();
 
-    const navigate = useNavigate()
-    const location = useLocation()
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const from = location.state?.from?.pathway || '/dashboard'
+    const from = location.state?.from?.pathway || '/dashboard';
 
     const [user, setUser] = useState({
         email: '',
@@ -59,67 +59,65 @@ const SignIn = () => {
     };
 
     return (
-        <div>
-            <H1Title>Sign In</H1Title>
-            <div>
-                <Form
-                    method='post'
-                    className='register'
-                    onSubmit={handleSubmit}>
-                    <Wrapper>
-                        <Label
-                            text='Email:'
-                            label='emailAddress'
-                        />
-                        <Input
-                            type='email'
-                            id='emailAddress'
-                            name='emailAddress'
-                            autoComplete='off'
-                            onChange={(e) => setUser({
-                                ...user,
-                                email: e.target.value
-                            })}
-                            value={email}
-                            required
-                        />
-                    </Wrapper>
-                    <Wrapper>
-                        <Label
-                            text='Password:'
-                            label='password'
-                        />
-                        <Input
-                            type='password'
-                            id='password'
-                            name='password'
-                            autoComplete='off'
-                            onChange={(e) => setUser({
-                                ...user,
-                                password: e.target.value
-                            })}
-                            value={password}
-                            required
-                        />
-                    </Wrapper>
-
-                    <input
-                        type='hidden'
-                        name='_action'
-                        value='signIn'
+        <>
+            <h2>Sign In</h2>
+            <Form
+                method='post'
+                className='register'
+                onSubmit={handleSubmit}>
+                <Wrapper>
+                    <Label
+                        text='Email:'
+                        label='emailAddress'
                     />
-                    <button
-                        disabled={email === '' || password === ''}
-                        className='submit'
-                    >
-                        {isSubmitting ? 'Loading...' : 'Sign In'}
-                    </button>
-                    <p>Need an account?
-                        <Link to='/register'>Sign up now</Link>
-                    </p>
-                </Form>
-            </div>
-        </div>
+                    <Input
+                        type='email'
+                        id='emailAddress'
+                        name='emailAddress'
+                        autoComplete='off'
+                        onChange={(e) => setUser({
+                            ...user,
+                            email: e.target.value
+                        })}
+                        value={email}
+                        required
+                    />
+                </Wrapper>
+                <Wrapper>
+                    <Label
+                        text='Password:'
+                        label='password'
+                    />
+                    <Input
+                        type='password'
+                        id='password'
+                        name='password'
+                        autoComplete='off'
+                        onChange={(e) => setUser({
+                            ...user,
+                            password: e.target.value
+                        })}
+                        value={password}
+                        required
+                    />
+                </Wrapper>
+
+                <input
+                    type='hidden'
+                    name='_action'
+                    value='signIn'
+                />
+                <button
+                    disabled={email === '' || password === ''}
+                    className='submit'
+                >
+                    {isSubmitting ? 'Loading...' : 'Sign In'}
+                </button>
+                <p>Need an account?
+                    <Link to='/register'>Sign up now</Link>
+                </p>
+            </Form>
+        </>
     );
 };
 
