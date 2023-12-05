@@ -1,4 +1,5 @@
 import { useLocation, useLoaderData, Navigate, Outlet } from 'react-router-dom';
+import { PrivateNav } from '../elements/Navigation/PrivateNav';
 
 export const PrivateLayout = () => {
     const location = useLocation();
@@ -10,6 +11,7 @@ export const PrivateLayout = () => {
 
     return (
         <div>
+            <PrivateNav />
             <section>
                 <Outlet />
             </section>
