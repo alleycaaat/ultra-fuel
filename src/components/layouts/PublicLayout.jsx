@@ -1,6 +1,6 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../../auth/hooks';
-import { PublicNav } from '../../elements/Navigation/PublicNav';
+import { PublicNav } from '../elements/Navigation/PublicNav';
 
 export const PublicLayout = () => {
     const { currUser } = useAuth();

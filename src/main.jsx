@@ -20,6 +20,7 @@ import Dashboard from './components/screens/Private/Dashboard';
 import './styles.scss';
 import Register from './components/screens/Register';
 import { registerAction } from './util/actions/registerAction';
+import SignIn from './components/screens/SignIn';
 
 const router = createBrowserRouter(
 	[
@@ -44,6 +45,9 @@ const router = createBrowserRouter(
 						},
 						{
 							path: '/register', element: <Register />, action: registerAction,
+						},
+						{
+							path: '/signin', element: <SignIn />,
 						}
 					]
 				}

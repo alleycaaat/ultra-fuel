@@ -6,7 +6,7 @@ import { createAccount, getCurrentUser } from '../../auth/appwrite-helpers';
 import { useAuth } from '../../auth/hooks';
 
 // ** action
-import { registerAction } from '../actions/registerAction';
+import { registerAction } from '../../util/actions/registerAction';
 
 // ** import UI
 import { EmailAlert, Label, PWFormatAlert, PWMatchLabel, UsernameAlert } from '../elements/Forms/labels';
