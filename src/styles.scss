@@ -13,6 +13,7 @@ html {
     //stop the layout shift due to the scrollbar
     margin-left: calc(100vw - 100%);
 }
+
 body {
     margin-left: auto;
     margin-right: auto;
@@ -22,6 +23,10 @@ body {
 
 ul {
     list-style: none;
+}
+
+button {
+    cursor: pointer;
 }
 
 .sr-only {
