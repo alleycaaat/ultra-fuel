@@ -12,8 +12,8 @@ import { useAuth } from '../../auth/hooks';
 import { Wrapper } from '../elements/wrappers/form-wrapper';
 import { Label } from '../elements/Forms/labels';
 import { Input } from '../elements/Forms/input';
-import { H1Title } from '../elements/titles';
 
+import '../../util/forms.scss';
 
 const SignIn = () => {
     const { authUser } = useAuth();
@@ -59,7 +59,7 @@ const SignIn = () => {
     };
 
     return (
-        <>
+        <section>
             <h2>Sign In</h2>
             <Form
                 method='post'
@@ -107,17 +107,18 @@ const SignIn = () => {
                     name='_action'
                     value='signIn'
                 />
-                <button
-                    disabled={email === '' || password === ''}
-                    className='submit'
-                >
-                    {isSubmitting ? 'Loading...' : 'Sign In'}
-                </button>
-                <p>Need an account?
-                    <Link to='/register'>Sign up now</Link>
-                </p>
+                <div className='button-wrap'>
+                    <button
+                        className='submit'
+                    >
+                        {isSubmitting ? 'Loading...' : 'Sign In'}
+                    </button>
+                    <p>Need an account?
+                        <Link className='link-text' to='/register'>Sign up now</Link>
+                    </p>
+                </div>
             </Form>
-        </>
+        </section>
     );
 };
 

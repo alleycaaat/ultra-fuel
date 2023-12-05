@@ -211,15 +211,18 @@ const Register = () => {
                     name='_action'
                     value='newUser'
                 />
-                <button
-                    type='submit'
-                    className='submit'>
-                    {isSubmitting ? 'Creating...' : 'Create Account'}
-                </button>
 
-                <p className='after-button'>Already have an account?
-                    <Link to='/login' className='linx text'>Sign in here</Link>.
-                </p>
+                <div className='button-wrap'>
+                    <button
+                        type='submit'
+                        className='submit'>
+                        {isSubmitting ? 'Creating...' : 'Create Account'}
+                    </button>
+
+                    <p>Already have an account?
+                        <Link to='/login' className='link-text'>Sign in here</Link>
+                    </p>
+                </div>
             </fetcher.Form>
         </section>
     );
