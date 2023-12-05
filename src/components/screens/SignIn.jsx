@@ -1,12 +1,19 @@
 import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
-import { H1Title } from '../elements/titles';
+import { useState } from 'react';
+
+//** import helpers
+import { getCurrentUser, signIn } from '../../auth/appwrite-helpers';
+import { setData } from '../../util/helpers';
+
+//** import hooks
+import { useAuth } from '../../auth/hooks';
+
+//** import UI
 import { Wrapper } from '../elements/wrappers/form-wrapper';
 import { Label } from '../elements/Forms/labels';
 import { Input } from '../elements/Forms/input';
-import { useAuth } from '../../auth/hooks';
-import { useState } from 'react';
-import { setData } from '../../util/helpers';
-import { getCurrentUser, signIn } from '../../auth/appwrite-helpers';
+import { H1Title } from '../elements/titles';
+
 
 const SignIn = () => {
     const { authUser } = useAuth()
@@ -28,6 +35,8 @@ const SignIn = () => {
         e.preventDefault();
 
         setIsSubmitting(true);
+        //send entered email and password to appwrite helper to try and create a valid session
+        //get the current user, store data in context and locally
         try {
             await signIn(email, password);
             const promise = await getCurrentUser();
