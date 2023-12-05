@@ -1,0 +1,25 @@
+$darkBlue: #03536d;
+$button-shaddow: 3px 3px 3px 0px rgb(144, 144, 144);
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: 3px auto;
+    .nav-button {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 19px;
+        padding: 3px 5px;
+        border-radius: 5px;
+        color: $darkBlue;
+        transition-duration: 0.5s;
+        &:hover {
+            background-color: white;
+            box-shadow: $button-shaddow;
+        }
+        &:focus {
+            outline: 1px solid $darkBlue;
+        }
+    }
+}
