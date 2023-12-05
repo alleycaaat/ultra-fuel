@@ -52,9 +52,11 @@ export const PWFormatAlert = ({ pcFocus, password, validPc }) => {
     return (
         <div id='pcnote' className={pcFocus && password && !validPc ? 'instructions' : 'offscreen'}>
             <p>
-                8 to 24 characters.</p>
+                8 to 24 characters.
+            </p>
             <p>
-                Must include uppercase and lowercase letters, a number and a special character.</p>
+                Must include uppercase and lowercase letters, a number and a special character.
+            </p>
             <p>
                 Allowed special characters: <span aria-label='exclamation mark'>!</span> <span aria-label='at symbol'>@</span> <span aria-label='pound sign'>#</span> <span aria-label='dollar sign'>$</span> <span aria-label='percent sign'>%</span>
             </p>
@@ -66,7 +68,7 @@ export const PWFormatAlert = ({ pcFocus, password, validPc }) => {
 export const PWMatchAlert = ({ matchFocus, validMatch }) => {
     return (
         <div id='confirmnote' className={matchFocus && !validMatch ? 'instructions' : 'offscreen'}>
-            <p> Must match the first password input field.</p>
+            <p>Must match the first password input field.</p>
         </div>
     );
 };

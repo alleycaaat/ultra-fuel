@@ -10,11 +10,9 @@ export const PrivateLayout = () => {
     }
 
     return (
-        <div>
+        <>
             <PrivateNav />
-            <section>
-                <Outlet />
-            </section>
-        </div>
+            <Outlet />
+        </>
     );
 };
