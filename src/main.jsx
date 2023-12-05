@@ -18,6 +18,8 @@ import Dashboard from './components/screens/Private/Dashboard';
 
 
 import './styles.scss';
+import Register from './components/screens/Register';
+import { registerAction } from './util/actions/registerAction';
 
 const router = createBrowserRouter(
 	[
@@ -40,6 +42,9 @@ const router = createBrowserRouter(
 						{
 							path: '/dashboard', element: <Dashboard />, loader: profileLoader,
 						},
+						{
+							path: '/register', element: <Register />, action: registerAction,
+						}
 					]
 				}
 			]
