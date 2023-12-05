@@ -27,7 +27,8 @@ export const PWMatchLabel = ({ text, label, valid, value }) => {
 //alert for invalid username
 export const UsernameAlert = ({ userFocus, username, validName }) => {
     return (
-        <div id='usernamenote' className={userFocus && username && !validName ? 'instructions' : 'offscreen'}>
+        <div id='usernamenote'
+        className={userFocus && username && !validName ? 'instructions' : 'offscreen'}>
             <p>
                 Username must be at least six characters long with no trailing spaces.
             </p>

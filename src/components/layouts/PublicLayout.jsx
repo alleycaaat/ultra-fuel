@@ -11,11 +11,9 @@ export const PublicLayout = () => {
     if (currUser) return <Navigate to={from} state={{ from: location }} replace />;
 
     return (
-        <div>
+        <>
             <PublicNav />
-            <section>
-                <Outlet />
-            </section>
-        </div>
+            <Outlet />
+        </>
     );
 };
