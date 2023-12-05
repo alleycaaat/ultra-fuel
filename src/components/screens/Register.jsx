@@ -9,7 +9,7 @@ import { useAuth } from '../../auth/hooks';
 import { registerAction } from '../../util/actions/registerAction';
 
 // ** import UI
-import { EmailAlert, Label, PWFormatAlert, PWMatchLabel, UsernameAlert } from '../elements/Forms/labels';
+import { EmailAlert, Label, PWFormatAlert, PWMatchAlert, PWMatchLabel, UsernameAlert } from '../elements/Forms/labels';
 import { validateEmail } from '../../util/helpers';
 import { Input } from '../elements/Forms/input';
 import { Wrapper } from '../elements/wrappers/form-wrapper';
@@ -113,11 +113,6 @@ const Register = () => {
                         required
                     />
                 </Wrapper>
-                <UsernameAlert
-                    userFocus={usernameFocus}
-                    username={username}
-                    validUsername={validUsername}
-                />
 
                 <Wrapper>
                     <Label
@@ -143,11 +138,6 @@ const Register = () => {
                         required
                     />
                 </Wrapper>
-                <EmailAlert
-                    userFocus={emailFocus}
-                    email={email}
-                    validEmail={validEmail}
-                />
 
                 <Wrapper>
                     <Label
@@ -173,11 +163,6 @@ const Register = () => {
                         required
                     />
                 </Wrapper>
-                <PWFormatAlert
-                    pcFocus={pcFocus}
-                    password={password}
-                    validPc={validPc}
-                />
 
                 <Wrapper>
                     <PWMatchLabel
@@ -198,10 +183,28 @@ const Register = () => {
                         required
                     />
                 </Wrapper>
-                <PWMatchLabel
-                    matchFocus={matchFocus}
-                    validMatch={validMatch}
-                />
+
+                <div className='alerts'>
+                    <UsernameAlert
+                        userFocus={usernameFocus}
+                        username={username}
+                        validName={validUsername}
+                    />
+                    <EmailAlert
+                        userFocus={emailFocus}
+                        email={email}
+                        validEmail={validEmail}
+                    />
+                    <PWMatchAlert
+                        matchFocus={matchFocus}
+                        validMatch={validMatch}
+                    />
+                    <PWFormatAlert
+                        pcFocus={pcFocus}
+                        password={password}
+                        validPc={validPc}
+                    />
+                </div>
 
                 <input
                     type='hidden'
