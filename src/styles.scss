@@ -53,6 +53,7 @@ button {
     min-height: 100vh;
     background-color: $lightGrey;
     color: black;
+    font-size: 17px;
     box-shadow: $box-shadow2;
     .header {
         background-image: linear-gradient($lightOrange, $medOrange, $darkOrange);
