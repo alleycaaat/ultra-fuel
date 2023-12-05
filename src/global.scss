@@ -1,0 +1,23 @@
+$lightGrey: #bfbfbf;
+$medGrey: #7d7d7d;
+$darkGrey: #6c6c6c;
+$darkOrange: #af5a00;
+$medOrange: #e07300;
+$orange: #ff890d;
+$blue: #0f87af;
+$lightBlue: #3196b8;
+$darkBlue: #03536d;
+$lightOrange: rgb(255, 161, 61);
+$transparentOrange: rgba(255, 161, 61, 0.3);
+$box-shadow: 5px 5px 5px 0px rgb(144, 144, 144);
+$box-shadow2: 10px 0 10px rgb(88, 88, 88), -10px 0 10px rgb(88, 88, 88);
+$box-shadow3: 0 4px 0 rgba(0, 0, 0, 0.25),
+    0 4px 0 $lightGrey,
+    0 4px 6px rgba(0, 0, 0, 0.45);
+$time-shadow: 0 3px 3px rgb(88, 88, 89);
+$button-shaddow: 3px 3px 3px 0px rgb(144, 144, 144);
+$blueborder: 3px solid $darkBlue;
+$orangeborder: 3px solid $orange;
+$whiteborder: 3px solid #fff;
+$border: 3px solid $darkGrey;
+$whitebutton: linear-gradient(#fff, #fff, rgb(194, 194, 194));
