@@ -34,6 +34,12 @@ const router = createBrowserRouter(
 					children: [
 						{
 							path: '/', element: <Home />,
+						},
+						{
+							path: '/register', element: <Register />, action: registerAction,
+						},
+						{
+							path: '/signin', element: <SignIn />,
 						}
 					]
 				},
@@ -43,12 +49,6 @@ const router = createBrowserRouter(
 						{
 							path: '/dashboard', element: <Dashboard />, loader: profileLoader,
 						},
-						{
-							path: '/register', element: <Register />, action: registerAction,
-						},
-						{
-							path: '/signin', element: <SignIn />,
-						}
 					]
 				}
 			]
