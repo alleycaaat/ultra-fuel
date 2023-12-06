@@ -1,9 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import React from 'react';
+import { AuthContextProvider } from './store/auth-context';
 
 //** import helpers
 import { mainLoader, profileLoader } from './util/loaders';
+import { registerAction } from './util/actions/registerAction';
 
 //** import layouts
 import { WrappingLayout } from './components/layouts/WrappingLayout'; //main layout that everything appears in, wraps public and private layouts
@@ -12,16 +14,19 @@ import { PrivateLayout } from './components/layouts/PrivateLayout';
 
 
 //** import screens
+//private
+import PastEvents from './components/screens/Private/PastEvents'
+import Dashboard from './components/screens/Private/Dashboard';
+import NewEvent from './components/screens/Private/NewEvent';
+import Profile from './components/screens/Private/Profile'
+
+//public
+import Register from './components/screens/Register';
+import SignIn from './components/screens/SignIn';
 import Error from './components/screens/Error';
 import Home from './components/screens/Home';
-import Dashboard from './components/screens/Private/Dashboard';
-
 
 import './styles.scss';
-import Register from './components/screens/Register';
-import { registerAction } from './util/actions/registerAction';
-import SignIn from './components/screens/SignIn';
-import { AuthContextProvider } from './store/auth-context';
 
 const router = createBrowserRouter(
 	[
@@ -49,6 +54,15 @@ const router = createBrowserRouter(
 					children: [
 						{
 							path: '/dashboard', element: <Dashboard />, loader: profileLoader,
+						},
+						{
+							path: '/profile', element: <Profile />,
+						},
+						{
+							path: '/pastevents', element: <PastEvents />,
+						},
+						{
+							path: '/newevent', element: <NewEvent />,
 						},
 					]
 				}
