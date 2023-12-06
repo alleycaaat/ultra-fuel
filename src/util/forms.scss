@@ -37,6 +37,7 @@ form {
         margin-right: 5px;
         height: 16px;
     }
+    
     //wraps an input and label
     .form-wrapper {
         display: flex;
@@ -49,7 +50,7 @@ form {
         font-size: 17px;
         label {
             margin-right: 5px;
-            min-width: 140px;
+            min-width: 170px;
         }
         input {
             //TODO at 830px break this width causes labels to overflow
@@ -57,6 +58,7 @@ form {
             width: 80%;
         }
     }
+
     //format text of error messages
     .instructions {
         font-size: 14px;
