@@ -78,6 +78,7 @@ const Register = () => {
                 email: '',
                 password: '',
             });
+            setMatchPc('')
 
             registerAction(username, authSesh.$id);
         } catch (e) {
@@ -220,7 +221,7 @@ const Register = () => {
                     </button>
 
                     <p>Already have an account?
-                        <Link to='/login' className='link-text'>Sign in here</Link>
+                        <Link to='/signin' className='link-text'>Sign in here</Link>
                     </p>
                 </div>
             </fetcher.Form>

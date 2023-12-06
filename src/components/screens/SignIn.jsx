@@ -1,4 +1,4 @@
-import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 //** import helpers
@@ -23,7 +23,7 @@ const SignIn = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const from = location.state?.from?.pathway || '/dashboard';
+    const from = location.state?.from?.pathname || '/dashboard';
 
     const [user, setUser] = useState({
         email: '',
@@ -49,7 +49,7 @@ const SignIn = () => {
                 email: '',
                 password: '',
             });
-
+            console.log('from', from);
             navigate(from, { replace: true });
             return;
         } catch (e) {
@@ -61,7 +61,7 @@ const SignIn = () => {
     return (
         <section>
             <h2>Sign In</h2>
-            <Form
+            <form
                 method='post'
                 className='register'
                 onSubmit={handleSubmit}>
@@ -102,22 +102,17 @@ const SignIn = () => {
                     />
                 </Wrapper>
 
-                <input
-                    type='hidden'
-                    name='_action'
-                    value='signIn'
-                />
                 <div className='button-wrap'>
                     <button
                         className='submit'
                     >
-                        {isSubmitting ? 'Loading...' : 'Sign In'}
+                        {isSubmitting ? 'Signing In...' : 'Sign In'}
                     </button>
                     <p>Need an account?
                         <Link className='link-text' to='/register'>Sign up now</Link>
                     </p>
                 </div>
-            </Form>
+            </form>
         </section>
     );
 };
