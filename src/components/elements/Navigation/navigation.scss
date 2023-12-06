@@ -4,11 +4,11 @@ nav {
     display: flex;
     justify-content: space-around;
     width: 50%;
-    margin: 3px auto;
+    margin: -7px auto 5px auto;
     .nav-button {
         text-decoration: none;
         font-weight: bold;
-        font-size: 19px;
+        font-size: 17px;
         padding: 3px 5px;
         border-radius: 5px;
         color: $darkBlue;
