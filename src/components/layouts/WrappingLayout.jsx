@@ -4,12 +4,18 @@ import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
+import Loading from '../loading'
+
 import { Header } from '../elements/Header';
 import { Footer } from '../elements/Footer';
+import { useAuth } from '../../auth/hooks';
 
 export const WrappingLayout = () => {
+    const { loadingState } = useAuth()
+
     return (
         <div className='wrapper'>
+            {loadingState && <Loading />}
             <Header />
             <Outlet />
             <ToastContainer

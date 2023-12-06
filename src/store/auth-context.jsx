@@ -6,6 +6,8 @@ import { authReducer } from './reducer';
 export const AuthProvider = createContext({
     currUser: false,
     authUser: (data) => { },
+    loadingState: false,
+    setLoading: (data) => {},
 });
 
 export const AuthContextProvider = ({ children }) => {
@@ -22,9 +24,15 @@ export const AuthContextProvider = ({ children }) => {
         }
     };
 
+    const setLoading = (data) => {
+        dispatch({ type: 'SET_LOADING', payload: data });
+    };
+
     const value = {
         currUser: state.currUser,
         authUser: authUser,
+        loadingState: state.loadingState,
+        setLoading: setLoading,
     };
 
     return <AuthProvider.Provider value={value}>{children}</AuthProvider.Provider>;
