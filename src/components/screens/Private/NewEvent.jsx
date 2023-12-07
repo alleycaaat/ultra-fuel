@@ -13,14 +13,16 @@ const NewEvent = () => {
         duration: '',
     });
 
-    const { ename, date, starttime, location, distance, duraction } = data;
+    const { ename, date, starttime, location, distance, duration } = data;
     const handleSubmit = () => {
 
     };
 
+    
+
     return (
         <div>
-            <h2>New Event</h2>
+            <h2>Save a New Event</h2>
             <form
                 method='post'
                 className='newEvent'
@@ -43,6 +45,61 @@ const NewEvent = () => {
                         required
                     />
                 </Wrapper>
+                <Wrapper>
+                    <Label
+                        text='Date:'
+                        label='date'
+                    />
+                    <Input
+                        type='date'
+                        id='date'
+                        name='date'
+                        autoComplete='off'
+                        onChange={(e) => setData({
+                            ...data,
+                            data: e.target.value
+                        })}
+                        value={date}
+                        required
+                    />
+                </Wrapper>
+                <Wrapper>
+                    <Label
+                        text='Location:'
+                        label='location'
+                    />
+                    <Input
+                        type='text'
+                        id='location'
+                        name='location'
+                        autoComplete='off'
+                        onChange={(e) => setData({
+                            ...data,
+                            location: e.target.value
+                        })}
+                        value={location}
+                        required
+                    />
+                </Wrapper>
+                <Wrapper>
+                    <Label
+                        text='Start time:'
+                        label='starttime'
+                    />
+                    <Input
+                        type='time'
+                        id='starttime'
+                        name='starttime'
+                        autoComplete='off'
+                        onChange={(e) => setData({
+                            ...data,
+                            starttime: e.target.value
+                        })}
+                        value={starttime}
+                        required
+                    />
+                </Wrapper>
+
             </form>
         </div>
     );
