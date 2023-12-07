@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Input } from '../../elements/Forms/input';
 import { Label } from '../../elements/Forms/labels';
 import { Wrapper } from '../../elements/wrappers/form-wrapper';
+import DistanceRace from '../../elements/Forms/DistanceRace';
 
 const NewEvent = () => {
     const [data, setData] = useState({
@@ -10,15 +11,16 @@ const NewEvent = () => {
         starttime: '',
         location: '',
         distance: '',
-        duration: '',
+        timed: '',
     });
 
-    const { ename, date, starttime, location, distance, duration } = data;
+    const [raceType, setRaceType] = useState(false);
+console.log('racetype',raceType);
+    const { ename, date, starttime, location, distance, timed } = data;
+
     const handleSubmit = () => {
 
     };
-
-    
 
     return (
         <div>
@@ -99,7 +101,12 @@ const NewEvent = () => {
                         required
                     />
                 </Wrapper>
-
+                <Wrapper>
+                    <h3>Is this a timed event or a set distance?</h3>
+                    <button value='timed' onClick={e => setRaceType(e.target.value)}>Timed</button>
+                    <button value='distance' onClick={e => setRaceType(e.target.value)}>Distance</button>
+                </Wrapper>
+                {raceType === 'distance' && <DistanceRace data={data} setData={setData} distance={distance} />}
             </form>
         </div>
     );
