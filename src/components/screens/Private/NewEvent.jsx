@@ -1,10 +1,14 @@
 import { useState } from 'react';
-import { Input } from '../../elements/Forms/input';
-import { Label } from '../../elements/Forms/labels';
-import { Wrapper } from '../../elements/wrappers/form-wrapper';
+
+//** import elements
 import DistanceRace from '../../elements/Forms/DistanceRace';
 import TimedRace from '../../elements/Forms/TimedRace';
+import { GenLabel } from '../../elements/Forms/labels';
+import { Input } from '../../elements/Forms/input';
+
+//**import wrappers
 import { ButtonWrapper } from '../../elements/wrappers/button-wrapper';
+import { Wrapper } from '../../elements/wrappers/form-wrapper';
 
 const NewEvent = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -25,14 +29,14 @@ const NewEvent = () => {
     };
 
     return (
-        <div>
+        <section>
             <h2>Create a New Event</h2>
             <form
                 method='post'
                 className='newEvent'
                 onSubmit={handleSubmit}>
                 <Wrapper>
-                    <Label
+                    <GenLabel
                         text='Event Name:'
                         label='eventName'
                     />
@@ -50,7 +54,7 @@ const NewEvent = () => {
                     />
                 </Wrapper>
                 <Wrapper>
-                    <Label
+                    <GenLabel
                         text='Date:'
                         label='date'
                     />
@@ -68,7 +72,7 @@ const NewEvent = () => {
                     />
                 </Wrapper>
                 <Wrapper>
-                    <Label
+                    <GenLabel
                         text='Location:'
                         label='location'
                     />
@@ -82,11 +86,10 @@ const NewEvent = () => {
                             location: e.target.value
                         })}
                         value={location}
-                        required
                     />
                 </Wrapper>
                 <Wrapper>
-                    <Label
+                    <GenLabel
                         text='Start time:'
                         label='starttime'
                     />
@@ -119,6 +122,7 @@ const NewEvent = () => {
                         Distance
                     </button>
                 </ButtonWrapper>
+
                 {raceType === 'distance' &&
                     <DistanceRace
                         data={data}
@@ -132,12 +136,12 @@ const NewEvent = () => {
                         time={time}
                     />}
                 <button
-                    type='submit'
+                    type='submit event'
                     className='submit'>
                     {isSubmitting ? 'Saving event...' : 'Save Event'}
                 </button>
             </form>
-        </div>
+        </section>
     );
 };
 
