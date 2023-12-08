@@ -11,7 +11,7 @@ const DistanceRace = ({ data, setData, distance }) => {
                 label='distance'
             />
             <Input
-                type='text'
+                type='number'
                 id='distance'
                 name='distance'
                 autoComplete='off'

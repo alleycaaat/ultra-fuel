@@ -11,7 +11,7 @@ const TimedRace = ({ data, setData, time }) => {
                 label='time'
             />
             <Input
-                type='text'
+                type='number'
                 id='time'
                 name='time'
                 autoComplete='off'
