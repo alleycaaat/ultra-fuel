@@ -54,7 +54,7 @@ button {
     background-color: $lightGrey;
     color: black;
     font-size: 17px;
-    
+
     box-shadow: $box-shadow2;
     .header {
         background-image: linear-gradient($lightOrange, $medOrange, $darkOrange);
@@ -84,6 +84,34 @@ button {
     h2 {
         font-size: 23px;
         margin-bottom: 5px;
+    }
+    h3 {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        font-size: 21px;
+        text-align: center;
+        color: $darkBlue;
+    }
+}
+.blueButton {
+    padding: 3px 5px;
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: $darkBlue;
+    transition-duration: 0.5s;
+    color: white;
+    border-radius: 5px;
+    font-weight: 500;
+    border: none;
+    &:hover {
+        background-color: white;
+        color: $darkBlue;
+        box-shadow: $button-shaddow;
+    }
+    &:focus {
+        outline: 1px solid $darkBlue;
     }
 }
 

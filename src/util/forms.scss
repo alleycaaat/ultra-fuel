@@ -12,8 +12,11 @@ form {
         color: #fff;
     }
     input[type="url"],
+    input[type="date"],
     input[type="text"],
+    input[type="time"],
     input[type="email"],
+    input[type="number"],
     input[type="password"],
     textarea {
         font-size: 18px;
@@ -37,7 +40,7 @@ form {
         margin-right: 5px;
         height: 16px;
     }
-    
+
     //wraps an input and label
     .form-wrapper {
         display: flex;
@@ -122,6 +125,18 @@ form {
             &:hover {
                 text-decoration: underline;
             }
+        }
+    }
+}
+
+//wrap the distance and timed buttons
+.newEvent {
+    .button-wrapper {
+        display: flex;
+        flex-flow: wrap;
+        margin-top: 7px;
+        button {
+            margin: 5px auto;
         }
     }
 }
