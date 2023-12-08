@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-const DistanceWrapper = ({ children }) => {
+const RaceTypeWrapper = ({ children }) => {
     return (
         <div className='distance-wrapper'>{children}</div>
     );
 };
 
-export default DistanceWrapper;
+export default RaceTypeWrapper;

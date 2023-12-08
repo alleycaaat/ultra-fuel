@@ -2,7 +2,15 @@
 import { FcCheckmark } from 'react-icons/fc';
 import { MdError } from 'react-icons/md';
 
-//general label to wap input and display in/valid symbol
+//general label
+export const GenLabel = ({ label, text }) => {
+    return (
+        <label htmlFor={label}>
+            {text}
+        </label>
+    )
+}
+//label to wap input and display in/valid symbol
 export const Label = ({ text, label, valid, value }) => {
     return (
         <label htmlFor={label}>

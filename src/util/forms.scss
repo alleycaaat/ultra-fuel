@@ -57,20 +57,20 @@ form {
             min-width: 170px;
         }
         input {
-            //TODO at 830px break this width causes labels to overflow
             border-bottom: 2px solid $darkBlue;
             width: 80%;
         }
     }
     .distance-wrapper {
         flex-direction: row;
-        justify-content: center;
+        justify-content: left;
+        margin-top: 15px;
         margin-bottom: 75px;
         label {
             min-width: 55px !important;
         }
         input {
-            width: 15%;
+            width: 25%;
             text-align: center;
         }
     }
@@ -152,17 +152,15 @@ form {
             margin: 5px auto;
         }
     }
+    h3 {
+        margin-top: 15px;
+    }
     //format the radio button component
     .radio-wrap {
-        display: flex;
-        flex-direction: row;
-        width: auto;
         fieldset {
+            min-width: 105px;
             margin-left: 15px;
             border: none;
-        }
-        input {
-            max-width: 30px;
         }
     }
 }

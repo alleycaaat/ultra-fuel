@@ -16,3 +16,15 @@ export const Input = ({ type, id, name, value, autoComplete, onChange, aria, des
         />
     );
 };
+
+export const RadioInput = ({ id, name, value, onclick }) => {
+    return (
+        <input
+            type='radio'
+            id={id}
+            name={name}
+            value={value}
+            onClick={onclick}
+        />
+    )
+}
