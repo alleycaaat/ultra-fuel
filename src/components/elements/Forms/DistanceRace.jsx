@@ -7,17 +7,17 @@ const DistanceRace = ({ data, setData, distance }) => {
     return (
         <Wrapper>
             <Label
-                text='Event Name:'
-                label='eventName'
+                text='Event Distance:'
+                label='distance'
             />
             <Input
                 type='text'
-                id='eventName'
-                name='eventName'
+                id='distance'
+                name='distance'
                 autoComplete='off'
                 onChange={(e) => setData({
                     ...data,
-                    ename: e.target.value
+                    distance: e.target.value
                 })}
                 value={distance}
                 required

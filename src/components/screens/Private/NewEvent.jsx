@@ -3,6 +3,7 @@ import { Input } from '../../elements/Forms/input';
 import { Label } from '../../elements/Forms/labels';
 import { Wrapper } from '../../elements/wrappers/form-wrapper';
 import DistanceRace from '../../elements/Forms/DistanceRace';
+import TimedRace from '../../elements/Forms/TimedRace';
 
 const NewEvent = () => {
     const [data, setData] = useState({
@@ -11,12 +12,12 @@ const NewEvent = () => {
         starttime: '',
         location: '',
         distance: '',
-        timed: '',
+        time: '',
     });
 
     const [raceType, setRaceType] = useState(false);
-console.log('racetype',raceType);
-    const { ename, date, starttime, location, distance, timed } = data;
+    console.log('racetype', raceType);
+    const { ename, date, starttime, location, distance, time } = data;
 
     const handleSubmit = () => {
 
@@ -103,10 +104,29 @@ console.log('racetype',raceType);
                 </Wrapper>
                 <Wrapper>
                     <h3>Is this a timed event or a set distance?</h3>
-                    <button value='timed' onClick={e => setRaceType(e.target.value)}>Timed</button>
-                    <button value='distance' onClick={e => setRaceType(e.target.value)}>Distance</button>
+                    <button
+                        value='timed'
+                        onClick={e => setRaceType(e.target.value)}>
+                        Timed
+                    </button>
+                    <button
+                        value='distance'
+                        onClick={e => setRaceType(e.target.value)}>
+                        Distance
+                    </button>
                 </Wrapper>
-                {raceType === 'distance' && <DistanceRace data={data} setData={setData} distance={distance} />}
+                {raceType === 'distance' &&
+                    <DistanceRace
+                        data={data}
+                        setData={setData}
+                        distance={distance}
+                    />}
+                {raceType === 'timed' &&
+                    <TimedRace
+                        data={data}
+                        setData={setData}
+                        time={time}
+                />}
             </form>
         </div>
     );
