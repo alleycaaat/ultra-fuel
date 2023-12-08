@@ -42,7 +42,8 @@ form {
     }
 
     //wraps an input and label
-    .form-wrapper {
+    .form-wrapper,
+    .distance-wrapper {
         display: flex;
         flex-direction: row;
         align-items: baseline;
@@ -59,6 +60,18 @@ form {
             //TODO at 830px break this width causes labels to overflow
             border-bottom: 2px solid $darkBlue;
             width: 80%;
+        }
+    }
+    .distance-wrapper {
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 75px;
+        label {
+            min-width: 55px !important;
+        }
+        input {
+            width: 15%;
+            text-align: center;
         }
     }
 
@@ -129,14 +142,27 @@ form {
     }
 }
 
-//wrap the distance and timed buttons
 .newEvent {
+    //wrap the distance and timed buttons
     .button-wrapper {
         display: flex;
         flex-flow: wrap;
         margin-top: 7px;
         button {
             margin: 5px auto;
+        }
+    }
+    //format the radio button component
+    .radio-wrap {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        fieldset {
+            margin-left: 15px;
+            border: none;
+        }
+        input {
+            max-width: 30px;
         }
     }
 }
