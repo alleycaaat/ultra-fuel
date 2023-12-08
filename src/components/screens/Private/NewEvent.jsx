@@ -4,8 +4,11 @@ import { Label } from '../../elements/Forms/labels';
 import { Wrapper } from '../../elements/wrappers/form-wrapper';
 import DistanceRace from '../../elements/Forms/DistanceRace';
 import TimedRace from '../../elements/Forms/TimedRace';
+import { ButtonWrapper } from '../../elements/wrappers/button-wrapper';
 
 const NewEvent = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [raceType, setRaceType] = useState(false);
     const [data, setData] = useState({
         ename: '',
         date: '',
@@ -15,17 +18,15 @@ const NewEvent = () => {
         time: '',
     });
 
-    const [raceType, setRaceType] = useState(false);
-    console.log('racetype', raceType);
     const { ename, date, starttime, location, distance, time } = data;
 
     const handleSubmit = () => {
-
+        setIsSubmitting(true);
     };
 
     return (
         <div>
-            <h2>Save a New Event</h2>
+            <h2>Create a New Event</h2>
             <form
                 method='post'
                 className='newEvent'
@@ -102,19 +103,22 @@ const NewEvent = () => {
                         required
                     />
                 </Wrapper>
-                <Wrapper>
+                <ButtonWrapper>
                     <h3>Is this a timed event or a set distance?</h3>
+
                     <button
                         value='timed'
+                        className='blueButton'
                         onClick={e => setRaceType(e.target.value)}>
                         Timed
                     </button>
                     <button
                         value='distance'
+                        className='blueButton'
                         onClick={e => setRaceType(e.target.value)}>
                         Distance
                     </button>
-                </Wrapper>
+                </ButtonWrapper>
                 {raceType === 'distance' &&
                     <DistanceRace
                         data={data}
@@ -126,7 +130,12 @@ const NewEvent = () => {
                         data={data}
                         setData={setData}
                         time={time}
-                />}
+                    />}
+                <button
+                    type='submit'
+                    className='submit'>
+                    {isSubmitting ? 'Saving event...' : 'Save Event'}
+                </button>
             </form>
         </div>
     );
