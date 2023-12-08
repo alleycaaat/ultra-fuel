@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import { Wrapper } from '../wrappers/form-wrapper';
+import RaceTypeWrapper from '../wrappers/race-type-wrapper';
 import { Input } from './input';
-import { Label } from './labels';
+import { GenLabel } from './labels';
 
 const TimedRace = ({ data, setData, time }) => {
     return (
-        <Wrapper>
-            <Label
+        <RaceTypeWrapper>
+            <GenLabel
                 text='Event Duration:'
                 label='time'
             />
@@ -22,7 +22,7 @@ const TimedRace = ({ data, setData, time }) => {
                 value={time}
                 required
             />
-        </Wrapper>
+        </RaceTypeWrapper>
     );
 };
 
