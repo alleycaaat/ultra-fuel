@@ -5,7 +5,7 @@ import RadioWrapper from '../wrappers/radio-wrapper';
 
 //** import elements
 import { GenLabel } from './labels';
-import { Input, RadioInput } from './input';
+import { Input } from './input';
 
 const DistanceRace = ({ data, setData, distance }) => {
     return (
@@ -29,7 +29,8 @@ const DistanceRace = ({ data, setData, distance }) => {
             <RadioWrapper
                 label='Select the race measurement:'
             >
-                <RadioInput
+                <input
+                    type='radio'
                     id='miles'
                     name='measurement'
                     value='miles'
@@ -37,10 +38,12 @@ const DistanceRace = ({ data, setData, distance }) => {
                         ...data,
                         measurement: e.target.value
                     })}
+                    checked
                 />
                 <GenLabel label='miles' text='mi' />
 
-                <RadioInput
+                <input
+                    type='radio'
                     id='kilometers'
                     name='measurement'
                     value='kilometers'
