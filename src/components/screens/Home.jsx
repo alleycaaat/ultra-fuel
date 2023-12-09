@@ -1,9 +1,7 @@
-import { H1Title } from '../elements/titles';
-
 const Home = () => {
     return (
         <div>
-            <H1Title>Welcome to Ultra Fuel!</H1Title>
+            <h1>Welcome to Ultra Fuel!</h1>
         </div>
     );
 };
