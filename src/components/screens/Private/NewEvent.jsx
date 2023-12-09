@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react';
 
+//** import hooks
+import { useAuth } from '../../../auth/hooks';
+
+//**import constants
+import { Constants } from '../../../util/constants';
+
 //** import elements
+import { DateInput, Input } from '../../elements/Forms/input';
 import DistanceRace from '../../elements/Forms/DistanceRace';
 import TimedRace from '../../elements/Forms/TimedRace';
 import { GenLabel } from '../../elements/Forms/labels';
-import { DateInput, Input } from '../../elements/Forms/input';
 
 //**import wrappers
 import { ButtonWrapper } from '../../elements/wrappers/button-wrapper';
 import { Wrapper } from '../../elements/wrappers/form-wrapper';
-
-import { Constants } from '../../../util/constants';
-import { useAuth } from '../../../auth/hooks';
 
 const NewEvent = () => {
     const { setLoading } = useAuth();
@@ -52,6 +55,8 @@ const NewEvent = () => {
 
     //TODO if the year changes before the month, days don't update
     //TODO if 29-31 are picked and month changed to shorter month, day goes to 1 automatically
+
+    //** populate the number of days based on the month, account for leap years
     const populateDate = (month, year) => {
         setData({
             ...data,
@@ -71,7 +76,14 @@ const NewEvent = () => {
         ) {
             dayNum = Constants.thirtyone;
 
-        } else if (['April', 'June', 'September', 'November'].includes(month)) {
+        } else if (
+            [
+                'April',
+                'June',
+                'September',
+                'November'
+            ].includes(month)
+        ) {
             dayNum = Constants.thirty;
         } else {
             // If month is February, calculate whether it is a leap year or not
@@ -86,6 +98,7 @@ const NewEvent = () => {
         setLoading(false);
     };
 
+    //**get a ten year range to display
     const populateYears = () => {
         const date = new Date();
         const year = date.getFullYear();
@@ -101,6 +114,7 @@ const NewEvent = () => {
         setLoading(false);
     };
 
+    //** when the year changes, set it in data and check to see if it's a leap year
     const yearChange = (e) => {
         const year = e;
         populateDate(month, year);
