@@ -33,18 +33,18 @@ const DistanceRace = ({ data, setData, distance }) => {
                     id='miles'
                     name='measurement'
                     value='miles'
-                    onClick={(e) => setData({
+                    onChange={(e) => setData({
                         ...data,
                         measurement: e.target.value
                     })}
                 />
                 <GenLabel label='miles' text='mi' />
-               
+
                 <RadioInput
                     id='kilometers'
                     name='measurement'
                     value='kilometers'
-                    onClick={(e) => setData({
+                    onChange={(e) => setData({
                         ...data,
                         measurement: e.target.value
                     })}
