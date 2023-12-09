@@ -10,6 +10,7 @@ export const GenLabel = ({ label, text }) => {
         </label>
     )
 }
+
 //label to wap input and display in/valid symbol
 export const Label = ({ text, label, valid, value }) => {
     return (
