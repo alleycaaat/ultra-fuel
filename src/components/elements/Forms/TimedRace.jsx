@@ -21,7 +21,7 @@ const TimedRace = ({ data, setData, time }) => {
                 })}
                 value={time}
                 required
-            />
+            /><p>hours</p>
         </RaceTypeWrapper>
     );
 };
