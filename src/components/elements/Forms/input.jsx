@@ -26,5 +26,24 @@ export const RadioInput = ({ id, name, value, onclick }) => {
             value={value}
             onClick={onclick}
         />
-    )
-}
+    );
+};
+
+export const DateInput = ({ id, name, value, array, onChange }) => {
+    return (
+        <select
+            className='date'
+            id={id}
+            name={name}
+            onChange={onChange}
+            value={value}>
+            {array?.map((val, i) => (
+                <option
+                    key={i}
+                    value={val}>
+                    {val}
+                </option>
+            ))}
+        </select>
+    );
+};
