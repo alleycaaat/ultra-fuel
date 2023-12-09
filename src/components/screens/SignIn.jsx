@@ -49,7 +49,6 @@ const SignIn = () => {
                 email: '',
                 password: '',
             });
-            console.log('from', from);
             navigate(from, { replace: true });
             return;
         } catch (e) {
