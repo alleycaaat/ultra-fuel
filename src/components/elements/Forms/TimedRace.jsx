@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import RaceTypeWrapper from '../wrappers/race-type-wrapper';
-import { Input } from './input';
 import { GenLabel } from './labels';
 
 const TimedRace = ({ data, setData, time }) => {
@@ -10,8 +9,10 @@ const TimedRace = ({ data, setData, time }) => {
                 text='Event Duration:'
                 label='time'
             />
-            <Input
+            <input
                 type='number'
+                min='1'
+                max='240'
                 id='time'
                 name='time'
                 autoComplete='off'

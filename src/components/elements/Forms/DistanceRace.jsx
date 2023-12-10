@@ -8,6 +8,7 @@ import { GenLabel } from './labels';
 import { Input } from './input';
 
 const DistanceRace = ({ data, setData, distance }) => {
+
     return (
         <RaceTypeWrapper>
             <GenLabel
@@ -34,11 +35,10 @@ const DistanceRace = ({ data, setData, distance }) => {
                     id='miles'
                     name='measurement'
                     value='miles'
-                    onChange={(e) => setData({
+                    onClick={() => setData({
                         ...data,
-                        measurement: e.target.value
+                        measurement: 'mi'
                     })}
-                    checked
                 />
                 <GenLabel label='miles' text='mi' />
 
@@ -47,13 +47,13 @@ const DistanceRace = ({ data, setData, distance }) => {
                     id='kilometers'
                     name='measurement'
                     value='kilometers'
-                    onChange={(e) => setData({
+                    onClick={() => setData({
                         ...data,
-                        measurement: e.target.value
+                        measurement: 'km'
                     })}
                 />
                 <GenLabel label='kilometers' text='km' />
-                </RadioWrapper>
+            </RadioWrapper>
         </RaceTypeWrapper>
     );
 };
