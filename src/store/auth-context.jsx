@@ -34,6 +34,6 @@ export const AuthContextProvider = ({ children }) => {
         loadingState: state.loadingState,
         setLoading: setLoading,
     };
-
+    
     return <AuthProvider.Provider value={value}>{children}</AuthProvider.Provider>;
 };
