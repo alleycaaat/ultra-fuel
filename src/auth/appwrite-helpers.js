@@ -1,5 +1,6 @@
 import { ID, Permission, Role } from 'appwrite';
 import { account, databases } from '../config/appwrite';
+
 const DATABASE_ID = '656e36651e99327e908c';
 const EVENT_COLLECTION = '6574e211cca4eeb0c544';
 
@@ -41,21 +42,23 @@ export const createAccount = async (name, email, password) => {
 };
 
 //** create new event document tied to user
-export const createUserEvent = async (event, userID) => {
-    try {
-        await databases.createDocument(
-            DATABASE_ID,
-            EVENT_COLLECTION,
-            ID.unique(),
-            event,
-            [
-                Permission.delete(Role.user(userID)),
-                Permission.update(Role.user(userID)),
-                Permission.read(Role.user(userID)),
-            ]
-        );
-        return 'success';
-    } catch (e) {
-        return 'failed';
-    }
+export const createUserEvent = async (eventInfo, userID) => {
+    let promise = databases.createDocument(
+        DATABASE_ID,
+        EVENT_COLLECTION,
+        ID.unique(),
+        eventInfo,
+        [
+            Permission.delete(Role.user(userID)),
+            Permission.update(Role.user(userID)),
+            Permission.read(Role.user(userID)),
+        ]
+    );
+    promise.then(function
+        (response) {
+        console.log('res', response);
+    }, function (error) {
+        console.log('error', error);
+    });
+
 };
