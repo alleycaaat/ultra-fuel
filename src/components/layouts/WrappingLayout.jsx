@@ -1,16 +1,18 @@
 import { Outlet, useLoaderData } from 'react-router-dom';
+import { useEffect } from 'react';
 
 // ** breakfast
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-import Loading from '../loading'
+//** auth
+import { getCurrentUser } from '../../auth/appwrite-helpers';
+import { useAuth } from '../../auth/hooks';
 
+//** elements
 import { Header } from '../elements/Header';
 import { Footer } from '../elements/Footer';
-import { useAuth } from '../../auth/hooks';
-import { useEffect } from 'react';
-import { getCurrentUser } from '../../auth/appwrite-helpers';
+import Loading from '../loading'
 
 export const WrappingLayout = () => {
     const { loadingState, setLoading, authUser } = useAuth()
