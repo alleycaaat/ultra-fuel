@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
-//** import hooks
+//** auth
+import { createUserEvent } from '../../../auth/appwrite-helpers';
 import { useAuth } from '../../../auth/hooks';
 
-//**import constants
+//** import constants
 import { Constants } from '../../../util/constants';
 
 //** import elements
@@ -12,12 +14,13 @@ import DistanceRace from '../../elements/Forms/DistanceRace';
 import TimedRace from '../../elements/Forms/TimedRace';
 import { GenLabel } from '../../elements/Forms/labels';
 
-//**import wrappers
+//** import wrappers
 import { ButtonWrapper } from '../../elements/wrappers/button-wrapper';
 import { Wrapper } from '../../elements/wrappers/form-wrapper';
 
 const NewEvent = () => {
-    const { setLoading } = useAuth();
+    const { setLoading, currUser } = useAuth();
+
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [raceType, setRaceType] = useState(false);
     const [data, setData] = useState({
@@ -29,7 +32,7 @@ const NewEvent = () => {
         location: '',
         distance: '',
         time: '',
-        measurement: '',
+        measurement: 'mi',
     });
 
     const { ename, day, month, year, starttime, location, distance, time, measurement } = data;
@@ -42,8 +45,70 @@ const NewEvent = () => {
     });
     const { selectmonths, selectdays, selectyears, previousDay } = dateSelection;
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        switch (true) {
+            case ename === '':
+                toast.error('Event cannot be saved without a name');
+                break;
+            case starttime === '':
+                toast.error('Event cannot be saved without a time');
+                break;
+            case distance === '' && time === '':
+                toast.error('Event cannot be saved without length of event');
+                break;
+            case distance !== '' && measurement === '':
+                toast.error('Please specify mi or km');
+                break;
+            default:
+                break;
+        }
         setIsSubmitting(true);
+        let copyName = ename.trim(),
+            copydate = [day, month, year],
+            distanceevent;
+
+        switch (true) {
+            case (raceType === 'timed'):
+                distanceevent = null;
+                break;
+            case (raceType === 'distance' && measurement === 'mi'):
+                distanceevent = true;
+                break;
+            case (raceType === 'distance' && measurement === 'km'):
+                distanceevent = false;
+                break;
+            default:
+                break;
+        }
+
+        const eventInfo = {
+            eventname: copyName,
+            location: location,
+            distance: distance,
+            eventdate: copydate,
+            starttime: starttime,
+            miles: distanceevent,
+            timedevent: time,
+        };
+        saveNewEvent(eventInfo);
+    };
+
+    const saveNewEvent = (eventInfo) => {
+        createUserEvent(eventInfo, currUser.userID);
+        setData({
+            ename: '',
+            day: '1',
+            month: 'January',
+            year: '2023',
+            starttime: '',
+            location: '',
+            distance: '',
+            time: '',
+            measurement: 'mi',
+        })
+        setRaceType(false)
+        setIsSubmitting(false)
     };
 
     useEffect(() => {
@@ -227,7 +292,7 @@ const NewEvent = () => {
 
                     <button
                         value='timed'
-                        className='blueButton'
+                        className='bluebutton'
                         onClick={e => setRaceType(e.target.value)}>
                         Timed
                     </button>
