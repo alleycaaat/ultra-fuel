@@ -7,7 +7,8 @@ export const AuthProvider = createContext({
     currUser: false,
     authUser: (data) => { },
     loadingState: false,
-    setLoading: (data) => {},
+    setLoading: (data) => { },
+    logout: () => {},
 });
 
 export const AuthContextProvider = ({ children }) => {
@@ -28,12 +29,17 @@ export const AuthContextProvider = ({ children }) => {
         dispatch({ type: 'SET_LOADING', payload: data });
     };
 
+    const logout = () => {
+        dispatch({type: 'LOG_OUT'})
+    }
+
     const value = {
         currUser: state.currUser,
         authUser: authUser,
         loadingState: state.loadingState,
         setLoading: setLoading,
+        logout: logout,
     };
-    
+
     return <AuthProvider.Provider value={value}>{children}</AuthProvider.Provider>;
 };
