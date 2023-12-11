@@ -1,12 +1,22 @@
-import { NavLink } from 'react-router-dom';
-import './navigation.scss'
+import { NavLink, useNavigate } from 'react-router-dom';
 
+import { account } from '../../../config/appwrite';
+import { useAuth } from '../../../auth/hooks';
+
+import './navigation.scss';
+import { logoutAction } from '../../../util/actions/logoutAction';
 
 export const PrivateNav = () => {
+    const { logout } = useAuth();
+    const navigate = useNavigate();
 
     const logOut = () => {
-        //logout function, create Toast warning to confirm logout
-    }
+        //TODO create Toast warning to confirm logout
+        logout();
+        logoutAction()
+        account.deleteSession('current');
+        return navigate('/', { replace: true });
+    };
 
     return (
         <nav>
