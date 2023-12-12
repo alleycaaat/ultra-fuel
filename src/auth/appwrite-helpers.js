@@ -1,4 +1,4 @@
-import { ID, Permission, Role } from 'appwrite';
+import { ID, Permission, Query, Role } from 'appwrite';
 import { account, databases } from '../config/appwrite';
 
 const DATABASE_ID = '656e36651e99327e908c';
@@ -61,4 +61,17 @@ export const createUserEvent = async (eventInfo, userID) => {
         console.log('error', error);
     });
 
+};
+
+//** get users past events
+export const getUserEvents = async (userid) => {
+    try {
+        let promise = await databases.listDocuments(DATABASE_ID, EVENT_COLLECTION,
+            [
+                Query.search('userID', userid)
+            ]);
+        return promise;
+    } catch (e) {
+        console.log('error getting user events:', e);
+    }
 };
