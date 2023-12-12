@@ -292,7 +292,7 @@ const NewEvent = () => {
 
                     <button
                         value='timed'
-                        className='bluebutton'
+                        className='blueButton'
                         onClick={e => setRaceType(e.target.value)}>
                         Timed
                     </button>
