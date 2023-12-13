@@ -62,11 +62,13 @@ form {
             width: 80%;
         }
     }
+    .buffer {
+        margin-top: 75px !important;
+    }
     .distance-wrapper {
         flex-direction: row;
         justify-content: left;
         margin-top: 15px;
-        margin-bottom: 75px;
         label {
             min-width: 55px !important;
         }
@@ -158,10 +160,16 @@ form {
     }
     //format the radio button component
     .radio-wrap {
+        display: flex;
+        flex-direction: row;
+        margin: 5px auto;
+        width: 75%;
         fieldset {
             min-width: 105px;
-            margin-left: 15px;
             border: none;
+            label {
+                margin-right: 11px;
+            }
         }
     }
 }
