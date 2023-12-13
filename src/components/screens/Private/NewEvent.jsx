@@ -17,6 +17,7 @@ import { GenLabel } from '../../elements/Forms/labels';
 //** import wrappers
 import { ButtonWrapper } from '../../elements/wrappers/button-wrapper';
 import { Wrapper } from '../../elements/wrappers/form-wrapper';
+import MeasureRadio from '../../elements/Forms/MeasureRadio';
 
 const NewEvent = () => {
     const { setLoading, currUser } = useAuth();
@@ -32,10 +33,11 @@ const NewEvent = () => {
         location: '',
         distance: '',
         time: '',
+        goal: '',
         measurement: 'mi',
     });
 
-    const { ename, day, month, year, starttime, location, distance, time, measurement } = data;
+    const { ename, day, month, year, starttime, location, distance, time, measurement, goal } = data;
 
     const [dateSelection, setDateSelection] = useState({
         selectmonths: Constants.months,
@@ -65,22 +67,7 @@ const NewEvent = () => {
         }
         setIsSubmitting(true);
         let copyName = ename.trim(),
-            copydate = [day, month, year],
-            distanceevent;
-
-        switch (true) {
-            case (raceType === 'timed'):
-                distanceevent = null;
-                break;
-            case (raceType === 'distance' && measurement === 'mi'):
-                distanceevent = true;
-                break;
-            case (raceType === 'distance' && measurement === 'km'):
-                distanceevent = false;
-                break;
-            default:
-                break;
-        }
+            copydate = [day, month, year];
 
         const eventInfo = {
             eventname: copyName,
@@ -88,8 +75,11 @@ const NewEvent = () => {
             distance: distance,
             eventdate: copydate,
             starttime: starttime,
-            miles: distanceevent,
+            miles: measurement === 'mi' ? true : false,
             timedevent: time,
+            racetype: raceType,
+            goal: goal,
+            userID: currUser.userID,
         };
         saveNewEvent(eventInfo);
     };
@@ -106,9 +96,9 @@ const NewEvent = () => {
             distance: '',
             time: '',
             measurement: 'mi',
-        })
-        setRaceType(false)
-        setIsSubmitting(false)
+        });
+        setRaceType(false);
+        setIsSubmitting(false);
     };
 
     useEffect(() => {
@@ -287,6 +277,10 @@ const NewEvent = () => {
                         required
                     />
                 </Wrapper>
+                <MeasureRadio
+                    data={data}
+                    setData={setData}
+                />
                 <ButtonWrapper>
                     <h3>Is this a timed event or a set distance?</h3>
 
@@ -308,17 +302,19 @@ const NewEvent = () => {
                     <DistanceRace
                         data={data}
                         setData={setData}
+                        raceType={raceType}
                         distance={distance}
                     />}
                 {raceType === 'timed' &&
                     <TimedRace
                         data={data}
                         time={time}
+                        raceType={raceType}
                         setData={setData}
                     />}
                 <button
                     type='submit event'
-                    className='submit'>
+                    className='submit buffer'>
                     {isSubmitting ? 'Saving event...' : 'Save Event'}
                 </button>
             </form>
