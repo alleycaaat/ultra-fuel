@@ -4,6 +4,7 @@ const RadioWrapper = ({ children, label }) => {
         <div className='radio-wrap'>
             <fieldset>
                 <legend className='sr-only'>{label}</legend>
+                <label>Race measurement:</label>
                 {children}
             </fieldset>
         </div>
