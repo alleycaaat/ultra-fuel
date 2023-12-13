@@ -5,7 +5,7 @@ import { GenLabel } from './labels';
 const MeasureRadio = ({ data, setData }) => {
     return (
         <RadioWrapper
-            label='Select what how the event is measured'
+            label='Select how the event is measured'
         >
             <input
                 type='radio'
