@@ -61,16 +61,16 @@ const router = createBrowserRouter(
 							path: '/profile', element: <Profile />,
 						},
 						{
-							element: <Events />, path: '/event',
+							element: <Events />, path: '/events',
 							children: [
 								{
-									path: '/events/pastevents', element: <PastEvents />,
+									path: 'pastevents', element: <PastEvents />,
 								},
 								{
-									path: '/events/newevent', element: <NewEvent />,
+									path: 'newevent', element: <NewEvent />,
 								},
 								{
-									path: '/events/:eventId', element: <Event />,
+									path: ':eventId', element: <Event />,
 								}
 							]
 						}
