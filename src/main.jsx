@@ -15,10 +15,11 @@ import { PrivateLayout } from './components/layouts/PrivateLayout';
 
 //** import screens
 //private
-import PastEvents from './components/screens/Private/PastEvents'
+import PastEvents from './components/screens/Private/PastEvents';
 import Dashboard from './components/screens/Private/Dashboard';
 import NewEvent from './components/screens/Private/NewEvent';
-import Profile from './components/screens/Private/Profile'
+import Profile from './components/screens/Private/Profile';
+import Events from './components/screens/Private/Events';
 
 //public
 import Register from './components/screens/Register';
@@ -27,6 +28,7 @@ import Error from './components/screens/Error';
 import Home from './components/screens/Home';
 
 import './styles.scss';
+import Event from './components/elements/Event';
 
 const router = createBrowserRouter(
 	[
@@ -59,11 +61,19 @@ const router = createBrowserRouter(
 							path: '/profile', element: <Profile />,
 						},
 						{
-							path: '/pastevents', element: <PastEvents />,
-						},
-						{
-							path: '/newevent', element: <NewEvent />,
-						},
+							element: <Events />, path: '/event',
+							children: [
+								{
+									path: '/events/pastevents', element: <PastEvents />,
+								},
+								{
+									path: '/events/newevent', element: <NewEvent />,
+								},
+								{
+									path: '/events/:eventId', element: <Event />,
+								}
+							]
+						}
 					]
 				}
 			]
