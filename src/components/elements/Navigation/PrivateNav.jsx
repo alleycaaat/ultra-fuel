@@ -34,13 +34,8 @@ export const PrivateNav = () => {
             </NavLink>
             <NavLink
                 className='nav-button'
-                to='/pastevents'>
-                Past Events
-            </NavLink>
-            <NavLink
-                className='nav-button'
-                to='/newevent'>
-                New Event
+                to='/events'>
+                Events
             </NavLink>
             <button
                 className='nav-button'
