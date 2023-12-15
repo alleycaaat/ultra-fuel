@@ -1,17 +1,18 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import React from 'react';
+
+//** ctx
 import { AuthContextProvider } from './store/auth-context';
 
 //** import helpers
-import { mainLoader, profileLoader } from './util/loaders';
 import { registerAction } from './util/actions/registerAction';
+import { mainLoader, profileLoader, userEventsLoader } from './util/loaders';
 
 //** import layouts
 import { WrappingLayout } from './components/layouts/WrappingLayout'; //main layout that everything appears in, wraps public and private layouts
-import { PublicLayout } from './components/layouts/PublicLayout';
 import { PrivateLayout } from './components/layouts/PrivateLayout';
-
+import { PublicLayout } from './components/layouts/PublicLayout';
 
 //** import screens
 //private
@@ -24,12 +25,11 @@ import Events from './components/screens/Private/Events';
 //public
 import Register from './components/screens/Register';
 import SignIn from './components/screens/SignIn';
+import Event from './components/elements/Event';
 import Error from './components/screens/Error';
 import Home from './components/screens/Home';
 
 import './styles.scss';
-import Event from './components/elements/Event';
-import { getUserEvents } from './auth/appwrite-helpers';
 
 const router = createBrowserRouter(
 	[
@@ -65,7 +65,7 @@ const router = createBrowserRouter(
 							element: <Events />, path: '/events',
 							children: [
 								{
-									path: 'pastevents', element: <PastEvents />, loader: getUserEvents,
+									path: 'pastevents', element: <PastEvents />, loader: userEventsLoader,
 								},
 								{
 									path: 'newevent', element: <NewEvent />,
