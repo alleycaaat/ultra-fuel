@@ -10,6 +10,7 @@ import { Constants } from '../../../util/constants';
 
 //** import elements
 import { DateInput, Input } from '../../elements/Forms/input';
+import MeasureRadio from '../../elements/Forms/MeasureRadio';
 import DistanceRace from '../../elements/Forms/DistanceRace';
 import TimedRace from '../../elements/Forms/TimedRace';
 import { GenLabel } from '../../elements/Forms/labels';
@@ -17,7 +18,6 @@ import { GenLabel } from '../../elements/Forms/labels';
 //** import wrappers
 import { ButtonWrapper } from '../../elements/wrappers/button-wrapper';
 import { Wrapper } from '../../elements/wrappers/form-wrapper';
-import MeasureRadio from '../../elements/Forms/MeasureRadio';
 
 const NewEvent = () => {
     const { setLoading, currUser } = useAuth();
