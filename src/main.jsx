@@ -29,6 +29,7 @@ import Home from './components/screens/Home';
 
 import './styles.scss';
 import Event from './components/elements/Event';
+import { getUserEvents } from './auth/appwrite-helpers';
 
 const router = createBrowserRouter(
 	[
@@ -64,7 +65,7 @@ const router = createBrowserRouter(
 							element: <Events />, path: '/events',
 							children: [
 								{
-									path: 'pastevents', element: <PastEvents />,
+									path: 'pastevents', element: <PastEvents />, loader: getUserEvents,
 								},
 								{
 									path: 'newevent', element: <NewEvent />,
