@@ -64,14 +64,16 @@ export const createUserEvent = async (eventInfo, userID) => {
 };
 
 //** get users past events
-export const getUserEvents = async (userid) => {
+export const getUserEvents = async (id) => {
     try {
-        let promise = await databases.listDocuments(DATABASE_ID, EVENT_COLLECTION,
+        let promise = await databases.listDocuments(
+            DATABASE_ID,
+            EVENT_COLLECTION,
             [
-                Query.search('userID', userid)
+                Query.search('userID', id)
             ]);
-        return promise;
-    } catch (e) {
-        console.log('error getting user events:', e);
+        return promise.documents;
+    } catch (error) {
+        console.log('get user events error:', error);
     }
 };
