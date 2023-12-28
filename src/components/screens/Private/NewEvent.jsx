@@ -32,7 +32,7 @@ const NewEvent = () => {
         starttime: '',
         location: '',
         distance: '',
-        time: '',
+        time: undefined,
         goal: '',
         measurement: 'mi',
     });
