@@ -93,7 +93,24 @@ button {
         text-align: center;
         color: $darkBlue;
     }
+    .past-events {
+        display: flex;
+        flex-direction: column;
+        margin: 5px auto;
+    }
+    .event {
+        border: 2px solid $darkBlue;
+        border-radius: 5px;
+        padding: 15px;
+        margin: 3px auto;
+        min-width: 50%;
+        .title {
+            font-weight: 500;
+            color: $darkBlue;
+        }
+    }
 }
+
 .blueButton {
     padding: 3px 5px;
     font-size: 15px;
